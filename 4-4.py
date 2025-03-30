@@ -21,43 +21,43 @@ Llama_MIKGR_MRR = [36.2, 36.8, 38.0, 38.5, 38.7, 38.7, 38.9, 38.8, 38.9, 39.0, 3
 HI_MIKGR_MRR = [34.9, 35.1, 35.6, 36.3, 36.4, 37.0, 36.2, 36.0, 35.5, 35.9, 36.1, 36.7, 36.2, 36.4, 36.2, 36.4, 36.3, 36.2, 36.4, 36.5]
 
 # 创建子图
-fig, axes = plt.subplots(2, 2, figsize=(12, 8))
+fig, axes = plt.subplots(2, 2, figsize=(12, 10))  # 调整整体大小
+fontsize = 16  # 设置全局字体大小
 
 # 子图 (a) Hits@1
 axes[0, 0].plot(epochs, Llama_MIKGR_hits1, '#9BCD9B', linestyle='-', label='Llama-MIKGR', marker='o')
 axes[0, 0].plot(epochs, HI_MIKGR_hits1, '#87CEFA', linestyle='--', label='HI-MIKGR', marker='s')
-axes[0, 0].set_title('Hits@1 (%)')
-axes[0, 0].set_xlabel('Epochs\n(a)')
-axes[0, 0].set_ylabel('Hits@1 (%)')
-axes[0, 0].legend(loc='upper left')
+axes[0, 0].set_title('Hits@1 (%)', fontsize=fontsize)
+axes[0, 0].set_xlabel('Epochs\n(a)', fontsize=fontsize)
+axes[0, 0].set_ylabel('Hits@1 (%)', fontsize=fontsize)
 axes[0, 0].grid(True)
 
 # 子图 (b) Hits@3
 axes[0, 1].plot(epochs, Llama_MIKGR_hits3, '#9BCD9B', linestyle='-',label='Llama-MIKGR', marker='o')
 axes[0, 1].plot(epochs, HI_MIKGR_hits3, '#87CEFA', linestyle='--',label='HI-MIKGR', marker='s')
-axes[0, 1].set_title('Hits@3 (%)')
-axes[0, 1].set_xlabel('Epochs\n(b)')
-axes[0, 1].set_ylabel('Hits@3 (%)')
-axes[0, 1].legend(loc='upper left')
+axes[0, 1].set_title('Hits@3 (%)', fontsize=fontsize)
+axes[0, 1].set_xlabel('Epochs\n(b)', fontsize=fontsize)
+axes[0, 1].set_ylabel('Hits@3 (%)', fontsize=fontsize)
 axes[0, 1].grid(True)
 
 # 子图 (c) Hits@10
 axes[1, 0].plot(epochs, Llama_MIKGR_hits10, '#9BCD9B',linestyle='-', label='Llama-MIKGR', marker='o')
 axes[1, 0].plot(epochs, HI_MIKGR_hits10, '#87CEFA',linestyle='--', label='HI-MIKGR', marker='s')
-axes[1, 0].set_title('Hits@10 (%)')
-axes[1, 0].set_xlabel('Epochs\n(c)')
-axes[1, 0].set_ylabel('Hits@10 (%)')
-axes[1, 0].legend(loc='upper left')
+axes[1, 0].set_title('Hits@10 (%)', fontsize=fontsize)
+axes[1, 0].set_xlabel('Epochs\n(c)', fontsize=fontsize)
+axes[1, 0].set_ylabel('Hits@10 (%)', fontsize=fontsize)
 axes[1, 0].grid(True)
 
 # 子图 (d) MRR
 axes[1, 1].plot(epochs, Llama_MIKGR_MRR, '#9BCD9B',linestyle='-', label='Llama-MIKGR', marker='o')
 axes[1, 1].plot(epochs, HI_MIKGR_MRR, '#87CEFA', linestyle='--',label='HI-MIKGR', marker='s')
-axes[1, 1].set_title('MRR (%)')
-axes[1, 1].set_xlabel('Epochs\n(d)')
-axes[1, 1].set_ylabel('MRR (%)')
-axes[1, 1].legend(loc='upper left')
+axes[1, 1].set_title('MRR (%)', fontsize=fontsize)
+axes[1, 1].set_xlabel('Epochs\n(d)', fontsize=fontsize)
+axes[1, 1].set_ylabel('MRR (%)', fontsize=fontsize)
 axes[1, 1].grid(True)
+
+# 统一图例放在底部
+fig.legend(['LE-MIKGR', 'HR-MIKGR'], loc='lower center', ncol=3, fontsize=fontsize)
 
 # 调整布局
 plt.tight_layout()
